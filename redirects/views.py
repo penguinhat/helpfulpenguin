@@ -24,3 +24,17 @@ class RedirectList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class RedirectDetails(APIView):
+    """
+    GET a specific LiveRedirect
+    """
+
+    def get(self,request,slug,format=None):
+        try:
+            request = LiveRedirect.objects.get(slug=slug)
+        except LiveRedirect.DoesNotExist:
+            raise Http404
+
+        serializer = LiveRedirectSerializer(request)
+        return Response(serializer.data)

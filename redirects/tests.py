@@ -1,11 +1,6 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
-"""
-
 from django.test import TestCase
+from django.test.client import Client
+from django.core.urlresolvers import reverse
 
 from redirects.models import LiveRedirect, HALF_DAY, FOUR_WEEKS, DURATION_CHOICES
 from redirects.utils import get_unused_slug, VALID_WORDS
@@ -56,3 +51,26 @@ class RedirectCreationTest(TestCase):
             r = LiveRedirect(**default_kwargs)
             r.save()
             count += 1
+
+    def test_api(self):
+
+        client = Client()
+
+        # POST a new redirect
+        new_redirect_data = {
+            'duration':HALF_DAY,
+            'url':'http://www.example.com'
+        }
+
+        post_response = client.post(reverse('live_redirect_api'),new_redirect_data)
+
+        # Get the slug back and check that we can find our new LiveRedirect
+        slug = post_response.data['slug']
+
+        get_response = client.get(
+            reverse('live_redirect_details',kwargs={'slug':slug}))
+
+        self.assertEqual(post_response.data['slug'],get_response.data['slug'])
+        self.assertEqual(post_response.data['created'],get_response.data['created'])
+        self.assertEqual(post_response.data['duration'],get_response.data['duration'])
+        self.assertEqual(post_response.data['url'],get_response.data['url'])

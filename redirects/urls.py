@@ -6,7 +6,10 @@ from redirects import views
 urlpatterns = patterns('redirects.views',
     url(r'^list/$',
         views.RedirectList.as_view(),
-        name='live_redirect_list'),
+        name='live_redirect_api'),
+    url(r'^s/(?P<slug>\w+)$',
+        views.RedirectDetails.as_view(),
+        name='live_redirect_details'),
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)
