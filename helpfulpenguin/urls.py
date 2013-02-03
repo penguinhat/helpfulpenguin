@@ -16,4 +16,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^redirects/',include('redirects.urls')),
+
+	# ! WARNING ! frontend.urls MUST be the last urlconf to be loaded
+	# as it will match pretty much anything
+    url(r'^',include('frontend.urls')),
 )
