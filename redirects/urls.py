@@ -1,9 +1,12 @@
 from django.conf.urls import patterns, url
 from rest_framework.urlpatterns import format_suffix_patterns
 
+from redirects import views
+
 urlpatterns = patterns('redirects.views',
-    url(r'^list/$', 'live_redirect_list',name='live_redirect_list'),
-    # url(r'^snippets/(?P<pk>[0-9]+)$', 'snippet_detail'),
+    url(r'^list/$',
+        views.RedirectList.as_view(),
+        name='live_redirect_list'),
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)
