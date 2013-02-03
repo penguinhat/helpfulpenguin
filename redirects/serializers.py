@@ -2,15 +2,12 @@ from django.forms import widgets
 from rest_framework import serializers
 from redirects.models import LiveRedirect
 
-class LiveRedirectSerializer(serializers.Serializer):
-    pk = serializers.Field()  # Note: `Field` is an untyped read-only field.
+class LiveRedirectSerializer(serializers.ModelSerializer):
 
-    url = serializers.URLField()
-
-    slug = serializers.Field()
-    word_list = serializers.Field()
-
-    duration = serializers.ChoiceField()
+    class Meta:
+        model = LiveRedirect
+        exclude = ('id',)
+        read_only_fields = ('slug','word_list','expiry')
 
     def restore_object(self, attrs, instance=None):
         """
