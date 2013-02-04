@@ -3,80 +3,44 @@
   <head>
     <title>Bootstrap 101 Template</title>
     <!-- Bootstrap -->
+    <link href='http://fonts.googleapis.com/css?family=Lobster|Cabin' rel='stylesheet' type='text/css'>
     <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen">
-<style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-      }
-
-      /* Custom container */
-      .container-narrow {
-        margin: 0 auto;
-        max-width: 700px;
-      }
-      .container-narrow > hr {
-        margin: 30px 0;
-      }
-
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 60px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 72px;
-        line-height: 1;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
-
-      /* Supporting marketing content */
-      .marketing {
-        margin: 60px 0;
-      }
-      .marketing p + h4 {
-        margin-top: 28px;
-      }
-    </style>
-
+    <link href="{{ STATIC_URL }}css/custom.css" rel="stylesheet" media="screen">
   </head>
 <body>
 
     <div class="container-narrow">
 
-      <div class="masthead">
-<!--         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul> -->
-        <h3 class="muted">Helpful Penguin</h3>
-      </div>
-
-      <hr>
-
       <div class="jumbotron">
       <h1>helpfulpenguin.com</h1>
-      <h2>Easy to say links</h2>
 
-      <p class="lead">Do you want to share a web address but you can't say it? Would you rather just say something simple like <span class='text-url'>helpfulpenguin.com/redbanana</span> instead of <span class='text-url'>http://www.amazon.co.uk/March-Penguins-Blu-ray-Region-Free/dp/B000PMGR9Q/ref=sr_1_2?ie=UTF8&qid=1359919007&sr=8-2</span>?
+      <p class="lead">
+        Transforms
+      </p>
 
-      If so, then let the helpful penguin deal with it!</p>
+      <p class="lead">
+        <a target='_blank' href="http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294">http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294</a>
+      </p>
+
+      <p class="lead">
+        into
+      </p>
+
+      <p class="lead">
+        <a target='_blank' href="http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294" href='#'>helpfulpenguin.com/redbanana</a>
+      </p>
+
         <form method='POST' action='{% url index %}'>
           {% csrf_token %}
           {{ form.errors.url }}<br>
-          <h4>Enter link here</h4>
+          <h3>Enter link here</h3>
           {{ form.url }}<br>
           {# TODO: Add tooltip explaining where to find link #}
           {{ form.errors.duration }}<br>
           {{ form.duration }}<br>
-          <input class="btn btn-large btn-success" type='submit' name='new-redirect' value='Help me!' />
+          <input class="btn btn-large btn-success" type='submit' name='new-redirect' value='Transform!' />
         </form>
       </div>
-      <hr>
 
       <div class="row-fluid marketing">
         <div class="span12">
@@ -88,15 +52,13 @@
 
           <h4>Who?</h4>
           <p>This site was made by <a href='http://twitter.com/_wdh'>William David Hunt</a> for fun</p>
-
-          <p>This site wouldn't exist without <a href='https://www.djangoproject.com/'>Django</a> I'd also like to thank <a href='http://zigg.be'>zigg.be</a> for giving me the idea in the first place! If this site isn't up to stratch, try that one!</p>
         </div>
       </div>
 
       <hr>
 
       <div class="footer">
-        <p>&copy; Company 2012</p>
+        <p>&copy; William David Hunt 2013</p>
       </div>
 
     </div> <!-- /container -->
