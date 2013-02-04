@@ -18,7 +18,7 @@ def index(request):
 		form = RedirectForm(request.POST)
 		if form.is_valid():
 			r = form.save()
-			return redirect('live_redirect',r.slug)
+			return redirect('redirect',r.slug)
 
 	else:
 		form = RedirectForm()
