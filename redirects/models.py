@@ -3,6 +3,8 @@ import django.utils.timezone
 
 from datetime import timedelta, datetime
 
+from django.core.urlresolvers import reverse
+
 HALF_DAY = 3
 ONE_DAY = 4
 TWO_DAYS = 5
@@ -113,3 +115,6 @@ class LiveRedirect(models.Model):
 
     def __unicode__(self):
         return u'LiveRedirect %s -> %s Expires %s' % (self.slug,self.url,self.expiry)
+
+    def get_absolute_url(self):
+        return reverse('live_redirect',kwargs={'slug':self.slug})
