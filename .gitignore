@@ -4,3 +4,4 @@
 *.sqlite3
 .ropeproject
 /static/
+local_settings.py
