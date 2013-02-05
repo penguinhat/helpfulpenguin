@@ -22,3 +22,13 @@ def deploy():
         run("%s manage.py collectstatic --noinput" % python)
         run("%s manage.py migrate" % python)
         run("touch helpfulpenguin/wsgi.py")
+
+
+def service_start(service):
+    run("sudo service %s start" % service)
+
+def service_stop(service):
+    run("sudo service %s stop" % service)
+
+def service_restart(service):
+    run("sudo service %s restart" % service)
