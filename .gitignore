@@ -1,3 +1,4 @@
+/conf/
 *.pyc
 .log/
 *.sqlite3
