@@ -59,9 +59,9 @@ class ArchivedRedirect(models.Model):
     """
 
     created = models.DateTimeField(auto_now_add=True)
-    url = models.URLField(blank=False,null=False)
-    slug = models.SlugField(blank=False,null=False,unique=False)
-    expiry = models.DateTimeField(null=True,blank=False)
+    url = models.URLField(blank=False,null=False,editable=False)
+    slug = models.SlugField(blank=False,null=False,unique=False,editable=False)
+    expiry = models.DateTimeField(null=True,blank=False,editable=False)
 
 class LiveRedirect(models.Model):
     """
@@ -80,23 +80,6 @@ class LiveRedirect(models.Model):
     expiry = models.DateTimeField(null=False,blank=False)
     duration = models.IntegerField(null=False,blank=False,choices=DURATION_CHOICES)
 
-    def archive(self):
-        """
-        Creates an ArchivedRedirect and then deletes self.
-        """
-
-        kwargs = {
-            'url':self.url,
-            'slug':self.slug,
-            'expiry':self.expiry,
-        }
-
-        archive = ArchivedRedirect(**kwargs)
-
-        archive.save()
-
-        self.delete()
-
     def save(self,**kwargs):
 
         # If a new redirect
@@ -110,6 +93,15 @@ class LiveRedirect(models.Model):
             self.expiry = django.utils.timezone.now() + DURATION_DELTA[self.duration]
 
             self.full_clean()
+
+            archive_kwargs = {
+                'url':self.url,
+                'slug':self.slug,
+                'expiry':self.expiry,
+            }
+
+            archive = ArchivedRedirect(**archive_kwargs)
+            archive.save()
 
         super(LiveRedirect,self).save(**kwargs)
 
