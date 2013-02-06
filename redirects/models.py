@@ -59,9 +59,9 @@ class ArchivedRedirect(models.Model):
     """
 
     created = models.DateTimeField(auto_now_add=True)
-    url = models.URLField(blank=False,null=False)
-    slug = models.SlugField(blank=False,null=False,unique=False)
-    expiry = models.DateTimeField(null=True,blank=False)
+    url = models.URLField(blank=False,null=False,editable=False)
+    slug = models.SlugField(blank=False,null=False,unique=False,editable=False)
+    expiry = models.DateTimeField(null=True,blank=False,editable=False)
 
 class LiveRedirect(models.Model):
     """
