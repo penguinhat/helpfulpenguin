@@ -58,3 +58,18 @@ input {
 select {
     width: 70%;
 }
+
+/* Error styles */
+
+.errorlist {
+    margin: 0px !important;
+    padding-bottom: 6px;
+}
+
+.errorlist li {
+    font-family: 'Cabin', sans-serif;
+    list-style: none;
+    color: red;
+    font-size: 1.2em;
+
+}

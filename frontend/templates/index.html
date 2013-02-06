@@ -25,11 +25,12 @@
 
     <form method='POST' action='{% url index %}'>
       {% csrf_token %}
-      {{ form.errors.url }}<br>
       <h3>Enter link here</h3>
+      {{ form.errors.url }}
       {{ form.url }}<br>
       {# TODO: Add tooltip explaining where to find link #}
-      {{ form.errors.duration }}<br>
+      <h3>How long?</h3>
+      {{ form.errors.duration }}
       {{ form.duration }}<br>
       <input class="btn btn-large btn-success" type='submit' name='new-redirect' value='Transform!' />
     </form>
