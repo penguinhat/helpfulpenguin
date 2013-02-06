@@ -1,92 +1,50 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bootstrap 101 Template</title>
-    <!-- Bootstrap -->
-    <link href='http://fonts.googleapis.com/css?family=Lobster|Cabin' rel='stylesheet' type='text/css'>
-    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="{{ STATIC_URL }}css/custom.css" rel="stylesheet" media="screen">
-  </head>
-<body>
+{% extends 'base.html' %}
 
-    <div class="container-narrow">
+{% block title %}helpfulpenguin.com | The url verbaliser!{% endblock title %}
 
-      <div class="jumbotron">
-      <h1>helpfulpenguin.com</h1>
+{% block content %}
 
-      <p class="lead">
-        Transforms
-      </p>
+  <div class="jumbotron">
+  <h1>helpfulpenguin.com</h1>
 
-      <p class="lead">
-        <a target='_blank' href="http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294">http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294</a>
-      </p>
+  <p class="lead">
+    Transforms
+  </p>
 
-      <p class="lead">
-        into
-      </p>
+  <p class="lead">
+    <a target='_blank' href="http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294">http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294</a>
+  </p>
 
-      <p class="lead">
-        <a target='_blank' href="http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294" href='#'>helpfulpenguin.com/redbanana</a>
-      </p>
+  <p class="lead">
+    into
+  </p>
 
-        <form method='POST' action='{% url index %}'>
-          {% csrf_token %}
-          {{ form.errors.url }}<br>
-          <h3>Enter link here</h3>
-          {{ form.url }}<br>
-          {# TODO: Add tooltip explaining where to find link #}
-          {{ form.errors.duration }}<br>
-          {{ form.duration }}<br>
-          <input class="btn btn-large btn-success" type='submit' name='new-redirect' value='Transform!' />
-        </form>
-      </div>
+  <p class="lead">
+    <a target='_blank' href="http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294" href='#'>helpfulpenguin.com/redbanana</a>
+  </p>
 
-      <div class="row-fluid marketing">
-        <div class="span12">
-          <h4>What?</h4>
-          <p>This is a web service that can turn a link into something easy to say</p>
+    <form method='POST' action='{% url index %}'>
+      {% csrf_token %}
+      {{ form.errors.url }}<br>
+      <h3>Enter link here</h3>
+      {{ form.url }}<br>
+      {# TODO: Add tooltip explaining where to find link #}
+      {{ form.errors.duration }}<br>
+      {{ form.duration }}<br>
+      <input class="btn btn-large btn-success" type='submit' name='new-redirect' value='Transform!' />
+    </form>
+  </div>
 
-          <h4>Why?</h4>
-          <p>Sometimes you'll want to show someone a webpage but you don't want to deal with the kerfuffle of emailing someone a link. It's always better to talk in person but sharing internet links is something that's hard to do. Try saying <a href="http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294">http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294</a> down the phone to your mum. It's not going to happen, is it?</p>
+  <div class="row-fluid marketing">
+    <div class="span12">
+      <h4>What?</h4>
+      <p>This is a web service that can turn a link into something easy to say</p>
 
-          <h4>Who?</h4>
-          <p>This site was made by <a href='http://twitter.com/_wdh'>William David Hunt</a> for fun</p>
-        </div>
-      </div>
+      <h4>Why?</h4>
+      <p>Sometimes you'll want to show someone a webpage but you don't want to deal with the kerfuffle of emailing someone a link. It's always better to talk in person but sharing internet links is something that's hard to do. Try saying <a href="http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294">http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294</a> down the phone to your mum. It's not going to happen, is it?</p>
 
-      <hr>
-
-      <div class="footer">
-        <p>&copy; William David Hunt 2013</p>
-      </div>
-
-    </div> <!-- /container -->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-     <script>
-    $(document).ready(function() {
-      var select = $( "#id_duration" );
-      var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
-        min: 1,
-        max: 6,
-        range: "min",
-        value: select[ 0 ].selectedIndex + 1,
-        slide: function( event, ui ) {
-          select[ 0 ].selectedIndex = ui.value - 1;
-        }
-      });
-
-      $( "#id_duration" ).change(function() {
-        slider.slider( "value", this.selectedIndex + 1 );
-      });
-
-    });
-    </script>
-  </body>
-</html>
+      <h4>Who?</h4>
+      <p>This site was made by <a href='http://twitter.com/_wdh'>William David Hunt</a> for fun</p>
+    </div>
+  </div>
+{% endblock content %}

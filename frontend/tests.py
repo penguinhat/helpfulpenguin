@@ -70,3 +70,36 @@ class FrontendTest(LiveServerTestCase):
                     break
 
             self.failIf(not ok,'No link to target!')
+
+    def test_pages_are_valid(self):
+        """
+        Check that a page is valid. A valid page has a title, is not
+        a 404 or 500 page and correctly inheirts from base
+        """
+
+        url = 'http://www.example.com'
+
+        r = LiveRedirect(url=url,duration=HALF_DAY)
+        r.save()
+
+        TEST_URLS = [
+            '%s/' % self.live_server_url,
+            '%s/%s' % (self.live_server_url,r.slug),
+            '%s/%s/' % (self.live_server_url,r.slug),
+        ]
+
+        for url in TEST_URLS:
+            self.browser.get(url)
+
+            body = self.browser.find_element_by_tag_name('body')
+            title = self.browser.find_element_by_tag_name('title')
+
+            # Check that it is not a 404 or 500
+            self.assertNotIn('404',body.text,"%s returns 404!" % url)
+            self.assertNotIn('500',body.text,"%s returns 500!" % url)
+
+            # Check that title is valid
+
+            self.assertNotIn('NO-TITLE',title.text,"%s is using default base title!" % url)
+            self.assertIsNotNone(title.text, "%s has no title!" % url)
+            self.assertNotEquals('',title.text, "%s has no title!" % url)
