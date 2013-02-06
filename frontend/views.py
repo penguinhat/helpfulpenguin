@@ -7,8 +7,7 @@ from frontend.forms import RedirectForm
 
 def index(request):
 	"""
-	This view renders the index template. If there is a slug then
-	it tries to find a LiveRedirect with the same slug.
+	This view renders the index template.
 	"""
 
 	extra = {}
@@ -18,7 +17,7 @@ def index(request):
 		form = RedirectForm(request.POST)
 		if form.is_valid():
 			r = form.save()
-			return redirect('redirect',r.slug)
+			extra['redirect'] = r
 
 	else:
 		form = RedirectForm()
@@ -36,7 +35,7 @@ def view_redirect(request,slug):
 	try:
 		r = LiveRedirect.objects.get(slug=slug)
 	except LiveRedirect.DoesNotExist:
-		return redirect('index')
+		return redirect('frontend_index')
 
 	extra = {
 		'redirect':r,

@@ -19,13 +19,15 @@ class RedirectCreationTest(TestCase):
 
         r.save()
 
+        self.assertEqual(r.slug,''.join(r.words),'%s words property does not match slug!')
+
         for duration,_ in DURATION_CHOICES:
             kwargs = default_kwargs
             kwargs['duration'] = duration
 
             r = LiveRedirect(**kwargs)
-
             r.save()
+            self.assertEqual(r.slug,''.join(r.words),'%s words property does not match slug!')
 
 
     def test_slug_generation(self):
@@ -37,6 +39,7 @@ class RedirectCreationTest(TestCase):
         for i in xrange(1,len(VALID_WORDS)):
 
             get_unused_slug(i)
+
 
     def test_100_redirects_creation(self):
 
