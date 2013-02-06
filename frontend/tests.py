@@ -103,3 +103,15 @@ class FrontendTest(LiveServerTestCase):
             self.assertNotIn('NO-TITLE',title.text,"%s is using default base title!" % url)
             self.assertIsNotNone(title.text, "%s has no title!" % url)
             self.assertNotEquals('',title.text, "%s has no title!" % url)
+
+    def test_can_access_admin(self):
+        """
+        Unittest to ensure that all the frontend pages load correctly
+        """
+
+        #Homepage
+        self.browser.get(self.live_server_url + '/admin/')
+
+        body = self.browser.find_element_by_tag_name('body')
+
+        self.assertIn('Django administration',body.text,"Cannot get to /admin/")
