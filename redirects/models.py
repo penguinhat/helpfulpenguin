@@ -113,6 +113,10 @@ class LiveRedirect(models.Model):
 
         super(LiveRedirect,self).save(**kwargs)
 
+    @property
+    def words(self):
+        return self.word_list.split(',')
+
     def __unicode__(self):
         return u'LiveRedirect %s -> %s Expires %s' % (self.slug,self.url,self.expiry)
 
