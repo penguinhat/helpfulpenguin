@@ -23,7 +23,7 @@
     <a target='_blank' href="http://www.amazon.co.uk/gp/product/B007HCCOD0/ref=s9_pop_gw_g349_ir04?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-3&pf_rd_r=022GE1S720CBZ3PX3A18&pf_rd_t=101&pf_rd_p=358550247&pf_rd_i=468294">helpfulpenguin.com/redbanana</a>
   </p>
 
-    <form method='POST' action='{% url index %}'>
+    <form method='POST' action='.'>
       {% csrf_token %}
       <h3>Enter link here</h3>
       {{ form.errors.url }}
