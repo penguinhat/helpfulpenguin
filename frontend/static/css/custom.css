@@ -73,3 +73,35 @@ select {
     font-size: 1.2em;
 
 }
+
+
+/* Slug links */
+
+.slug a {
+    color: #ffffff;
+    font-size: 170%;
+}
+
+.red {
+    color: #fe0000;
+}
+
+.orange {
+    color: #fc6400;
+}
+
+.yellow {
+    color: #fcfb00;
+}
+
+.green {
+    color: #339800;
+}
+
+.blue {
+    color: #00adfe;
+}
+
+.purple {
+    color: #bc34fe;
+}

@@ -17,7 +17,7 @@ def index(request):
 		form = RedirectForm(request.POST)
 		if form.is_valid():
 			r = form.save()
-			return redirect('frontend_redirect',r.slug)
+			extra['redirect'] = r
 
 	else:
 		form = RedirectForm()
