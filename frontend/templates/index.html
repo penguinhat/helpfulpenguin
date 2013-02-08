@@ -40,12 +40,18 @@
         <h3>Enter another link here</h3>
       {% endif %}
       {{ form.errors.url }}
-      {{ form.url }}<br>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-link"></i></span>
+        {{ form.url }}<br>
+      </div>
       {# TODO: Add tooltip explaining where to find link #}
       <h3>How long?</h3>
       {{ form.errors.duration }}
-      {{ form.duration }}<br>
-      <input class="btn btn-large btn-success" type='submit' name='new-redirect' value='Transform!' />
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-time"></i></span>
+        {{ form.duration }}<br>
+      </div>
+        <button class="btn btn-large btn-success icon-hand-right" type='submit' name='new-redirect' value='Transform!'> Go!</button>
     </form>
   </div>
 
