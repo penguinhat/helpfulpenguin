@@ -1,8 +1,7 @@
 # Django settings for helpfulpenguin project.
 
-from local_settings import DATABASES, STATIC_ROOT
+from local_settings import DATABASES, STATIC_ROOT, DEBUG
 
-DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
