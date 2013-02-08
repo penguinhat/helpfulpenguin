@@ -1,5 +1,7 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render_to_response
 from django.template import RequestContext
+
+from django.http import Http404
 
 from redirects.models import LiveRedirect
 
@@ -35,7 +37,8 @@ def view_redirect(request,slug):
 	try:
 		r = LiveRedirect.objects.get(slug=slug)
 	except LiveRedirect.DoesNotExist:
-		return redirect('frontend_index')
+		raise Http404
+		#return redirect('frontend_index')
 
 	extra = {
 		'redirect':r,
