@@ -7,7 +7,7 @@ env.roledefs = {
 directory = '/srv/helpfulpenguin/django/'
 
 def qtest():
-    local("./manage.py test frontend redirects")
+    local("./manage.py test frontend redirects --failfast")
 
 def pull(branch='master'):
     with cd(directory):
