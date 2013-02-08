@@ -9,9 +9,10 @@ directory = '/srv/helpfulpenguin/django/'
 def qtest():
     local("./manage.py test frontend redirects --failfast")
 
-def pull(branch='master'):
+def pull(branch=None):
     with cd(directory):
-        run("git checkout %s" % branch)
+        if branch:
+            run("git checkout %s" % branch)
         run("git pull")
 
 def deploy():
