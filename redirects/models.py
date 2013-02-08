@@ -5,49 +5,51 @@ from datetime import timedelta, datetime
 
 from django.core.urlresolvers import reverse
 
+ONE_HOUR = 2
 HALF_DAY = 3
-ONE_DAY = 4
+# ONE_DAY = 4
 TWO_DAYS = 5
-THREE_DAYS = 6
-FIVE_DAYS = 7
+# THREE_DAYS = 6
+# FIVE_DAYS = 7
 ONE_WEEK = 8
-TWO_WEEKS = 9
-FOUR_WEEKS = 10
+# TWO_WEEKS = 9
+# FOUR_WEEKS = 10
 
 
 DURATION_CHOICES = (
-    (HALF_DAY,'12 Hours'),
-    (ONE_DAY,'One Day'),
-    (TWO_DAYS,'Two Days'),
-    (THREE_DAYS,'Three Days'),
-    (FIVE_DAYS,'Five Days'),
-    (ONE_WEEK,'One Week'),
-    (TWO_WEEKS,'Two Weeks'),
-    (FOUR_WEEKS,'Four Weeks'),
+    (ONE_HOUR,'Short Link for one hour'),
+    (HALF_DAY,'Medium Link for 12 hours'),
+    # (ONE_DAY,'One Day'),
+    (TWO_DAYS,'Long Link for 2 days'),
+    # (THREE_DAYS,'Three Days'),
+    # (FIVE_DAYS,'Five Days'),
+    (ONE_WEEK,'Very Long Link for One Week'),
+    # (TWO_WEEKS,'Two Weeks'),
+    # (FOUR_WEEKS,'Four Weeks'),
 )
 
 # timedelta for each duration
 DURATION_DELTA = {
+    ONE_HOUR:timedelta(hours=1),
     HALF_DAY:timedelta(hours=12),
-    ONE_DAY:timedelta(days=1),
+    # ONE_DAY:timedelta(days=1),
     TWO_DAYS:timedelta(days=2),
-    THREE_DAYS:timedelta(days=3),
-    FIVE_DAYS:timedelta(days=5),
+    # THREE_DAYS:timedelta(days=3),
+    # FIVE_DAYS:timedelta(days=5),
     ONE_WEEK:timedelta(days=7),
-    TWO_WEEKS:timedelta(days=14),
-    FOUR_WEEKS:timedelta(days=28),
+    # TWO_WEEKS:timedelta(days=14),
+    # FOUR_WEEKS:timedelta(days=28),
 }
 
 # Default number of words to use in the slug
 DURATION_WORD_COUNT = {
-    HALF_DAY:1,
-    ONE_DAY:1,
-    TWO_DAYS:2,
-    THREE_DAYS:2,
-    FIVE_DAYS:3,
-    ONE_WEEK:3,
-    TWO_WEEKS:4,
-    FOUR_WEEKS:5,
+    ONE_HOUR:1,
+    HALF_DAY:2,
+    # ONE_DAY:3,
+    TWO_DAYS:3,
+    ONE_WEEK:4,
+    # TWO_WEEKS:4,
+    # FOUR_WEEKS:5,
 }
 
 

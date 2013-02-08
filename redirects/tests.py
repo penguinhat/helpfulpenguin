@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 
-from redirects.models import LiveRedirect, HALF_DAY, FOUR_WEEKS, DURATION_CHOICES
+from redirects.models import LiveRedirect, HALF_DAY, ONE_WEEK, DURATION_CHOICES
 from redirects.utils import get_unused_slug, VALID_WORDS
 
 
@@ -47,7 +47,7 @@ class RedirectCreationTest(TestCase):
 
         default_kwargs = {
             'url':'http://www.example.com',
-            'duration':FOUR_WEEKS
+            'duration':ONE_WEEK
         }
 
         while count < 100:
