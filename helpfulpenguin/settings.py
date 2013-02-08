@@ -5,7 +5,7 @@ from local_settings import DATABASES, STATIC_ROOT, DEBUG
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     ('William David Hunt', 'william.david.hunt@gmail.com'),
+     ('William David Hunt', 'william.david.hunt+hp-admin@gmail.com'),
 )
 
 MANAGERS = ADMINS
