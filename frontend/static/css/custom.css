@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5 {
 }
 
 p {
-	font-family: 'Cabin', sans-serif;
+    font-family: "Arial Narrow", Arial, sans-serif;
 	color: #efefef;
 	margin-left: 32px;
 	margin-right: 32px;
@@ -67,7 +67,7 @@ select {
 }
 
 .errorlist li {
-    font-family: 'Cabin', sans-serif;
+    font-family: "Arial Narrow", Arial, sans-serif;
     list-style: none;
     color: red;
     font-size: 1.2em;
