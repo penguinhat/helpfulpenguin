@@ -65,7 +65,7 @@ class RedirectCreationTest(TestCase):
             'url':'http://www.example.com'
         }
 
-        post_response = client.post(reverse('live_redirect_api'),new_redirect_data)
+        post_response = client.post(reverse('live_redirect_details'),new_redirect_data)
 
         # Get the slug back and check that we can find our new LiveRedirect
         slug = post_response.data['slug']
