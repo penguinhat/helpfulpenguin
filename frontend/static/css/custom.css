@@ -109,3 +109,20 @@ select {
 .purple {
     color: #bc34fe;
 }
+
+.ui-slider-range { 
+    background: #809CCB !important; 
+}
+
+.ui-slider {
+    background: #809C3C !important
+}
+
+.ui-slider-handle {
+    height: 35px !important;
+}
+
+/*#slider {
+    margin-left: 20%;
+    margin-right: 20%;
+}*/

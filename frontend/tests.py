@@ -23,11 +23,13 @@ class FrontendTest(LiveServerTestCase):
 
         #Look for the submit button and the two inputs
         url_field = self.browser.find_element_by_id('id_url')
-        duration_field = self.browser.find_element_by_id('id_duration')
+
+        #duration is a slider now, so find that
+        duration_field = self.browser.find_element_by_id('slider')
 
         # Enter something into the inputs
         url_field.send_keys('www.example.com')
-        duration_field.send_keys(Keys.DOWN)
+        duration_field.send_keys(Keys.RIGHT)
 
         submit_button = self.browser.find_element_by_tag_name('input')
         submit_button.submit()
