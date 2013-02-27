@@ -115,4 +115,4 @@ class LiveRedirect(models.Model):
         return u'LiveRedirect %s -> %s Expires %s' % (self.slug,self.url,self.expiry)
 
     def get_absolute_url(self):
-        return reverse('live_redirect',kwargs={'slug':self.slug})
+        return reverse('frontend_redirect',kwargs={'slug':self.slug})

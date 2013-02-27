@@ -34,6 +34,14 @@ class FrontendTest(LiveServerTestCase):
         submit_button = self.browser.find_element_by_tag_name('input')
         submit_button.submit()
 
+        # Ensure that the submit doesn't redirect the user somewhere stupid
+        body = self.browser.find_element_by_tag_name('body')
+
+        # Check that it is not a 404 or 500
+        self.assertNotIn('404',body.text)
+        self.assertNotIn('500',body.text)
+
+
     def test_can_be_redirected(self):
         """
         Unittest to ensure that all the frontend pages load correctly

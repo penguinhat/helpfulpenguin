@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}helpfulpenguin.com | The url verbaliser!{% endblock title %}
+
+{% block scripts %}
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+  <script src="{{ STATIC_URL }}js/slider.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+  <div class="jumbotron">
+    <h1>helpfulpenguin.com</h1>
+
+    <p class='lead'>Your link is:</p>
+    <p class='slug'>
+      <a href="{{ redirect.get_absolute_url }}">
+      helpfulpenguin.com/{% for word in redirect.words %}<span class='{% cycle 'red' 'orange' 'yellow' 'green' 'blue' 'purple' %}'>{{ word }}</span>{% endfor %}
+      </a>
+    </p>
+  </div>
+{% endblock content %}
